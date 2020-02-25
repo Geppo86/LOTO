@@ -1,0 +1,33 @@
+﻿
+@{
+    ViewData["Title"] = "Machines Page";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<html lang="en">
+<head>
+    <title>Bootstrap Example</title>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
+</head>
+<body>
+
+    <div class="text-center">
+        <h1 class="display-4">Welcome in the Machine Area </h1>
+        <p>You can Create and edit your Machines </a>.</p>
+
+    </div>
+
+    <div class="text-center">
+        <div>
+            <input type="button" class="btn btn-outline-primary" value="Add Machine" onclick="location.href='@Url.Action("GetMachineList", "Machines")'">
+        </div>
+        <div>
+            <input type="button" class="btn btn-outline-primary" value=" Add Machine Zone" onclick="location.href='@Url.Action("IndexMachines", "Machines")'">
+        </div>
+    </div>
+</body>
+

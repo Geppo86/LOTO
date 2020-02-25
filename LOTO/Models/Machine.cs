@@ -10,7 +10,10 @@ namespace LOTO.Models
     {
         public int ID { get; set; }
 
-        [Display(Name = "Machine")]
+        [Display(Name = "Machine OEM Name")]
+        public string MachineOemName { get; set; }
+
+        [Display(Name = "Machine Common")]
         public string MachineName { get; set; }
 
         [Display(Name = "Site")]
@@ -24,5 +27,17 @@ namespace LOTO.Models
 
         [Display(Name = "Machine Map")]
         public string MachineMap { get; set; }
+
+        public MachineZone Zone { get; set; }
+    }
+
+    public class MachineZone
+    {
+        public int Id { get; set;}
+        public string Zone { get; set; }
+
+        public string ZoneMapFile { get; set; }
+
+        public string HatchingFile { get; set; }
     }
 }

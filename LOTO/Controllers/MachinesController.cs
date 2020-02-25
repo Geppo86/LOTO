@@ -19,13 +19,8 @@ namespace LOTO.Controllers
             _context = context;
         }
 
-        public IActionResult IndexMachines()
-        {
-            return View("IndexMachines");
-        }
-
         // GET: Machines
-        public async Task<IActionResult> GetMachineList()
+        public async Task<IActionResult> IndexMachineArea()
         {
             return View(await _context.Machine.ToListAsync());
         }
@@ -65,7 +60,7 @@ namespace LOTO.Controllers
             {
                 _context.Add(machine);
                 await _context.SaveChangesAsync();
-                return RedirectToAction(nameof(Index));
+                return RedirectToAction(nameof(IndexMachineArea));
             }
             return View(machine);
         }
@@ -116,7 +111,7 @@ namespace LOTO.Controllers
                         throw;
                     }
                 }
-                return RedirectToAction(nameof(Index));
+                return RedirectToAction(nameof(IndexMachineArea));
             }
             return View(machine);
         }
@@ -147,7 +142,7 @@ namespace LOTO.Controllers
             var machine = await _context.Machine.FindAsync(id);
             _context.Machine.Remove(machine);
             await _context.SaveChangesAsync();
-            return RedirectToAction(nameof(Index));
+            return RedirectToAction(nameof(IndexMachineArea));
         }
 
         private bool MachineExists(int id)

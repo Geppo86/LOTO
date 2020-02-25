@@ -7,6 +7,7 @@ namespace LOTO.Models
 {
     public class LockoutPoint
     {
+        public int ID { get; set; }
         public int LockoutTagNumber { get; set; }
 
         public string EnergyType { get; set; }

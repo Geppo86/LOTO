@@ -5,10 +5,11 @@
     Layout = "~/Views/Shared/_Layout.cshtml";
 }
 
-<h1>Index</h1>
+<h1>Machine Area </h1>
 
 <p>
-    <a asp-action="Create">Create New</a>
+    <input type="button" class="btn btn-outline-primary" value="Add Machine" onclick="location.href='@Url.Action("Create", "Machines")'">
+    <input type="button" class="btn btn-outline-primary" value=" Add Machine Zone" onclick="location.href='@Url.Action("IndexMachines", "Machines")'">
 </p>
 <table class="table">
     <thead>

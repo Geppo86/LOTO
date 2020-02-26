@@ -10,23 +10,22 @@ using LOTO.Models;
 
 namespace LOTO.Controllers
 {
-    public class MachinesController : Controller
+    public class MachineZonesController : Controller
     {
         private readonly LOTOContext _context;
 
-        public MachinesController(LOTOContext context)
+        public MachineZonesController(LOTOContext context)
         {
             _context = context;
         }
 
-        // GET: Machines
-        public async Task<IActionResult> IndexMachineArea()
+        // GET: MachineZones
+        public async Task<IActionResult> IndexMachineZones()
         {
-            return View(await _context.Machine.ToListAsync());
+            return View(await _context.MachineZone.ToListAsync());
         }
 
-        #region CRUD operation on a Machine
-        // GET: Machines/Details/5
+        // GET: MachineZones/Details/5
         public async Task<IActionResult> Details(int? id)
         {
             if (id == null)
@@ -34,39 +33,39 @@ namespace LOTO.Controllers
                 return NotFound();
             }
 
-            var machine = await _context.Machine
-                .FirstOrDefaultAsync(m => m.ID == id);
-            if (machine == null)
+            var machineZone = await _context.MachineZone
+                .FirstOrDefaultAsync(m => m.Id == id);
+            if (machineZone == null)
             {
                 return NotFound();
             }
 
-            return View(machine);
+            return View(machineZone);
         }
 
-        // GET: Machines/Create
+        // GET: MachineZones/Create
         public IActionResult Create()
         {
             return View();
         }
 
-        // POST: Machines/Create
+        // POST: MachineZones/Create
         // To protect from overposting attacks, please enable the specific properties you want to bind to, for 
         // more details see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public async Task<IActionResult> Create([Bind("ID,MachineName,Site,Building,Notes,MachineMap")] Machine machine)
+        public async Task<IActionResult> Create([Bind("Id,Zone,ZoneMapFile,HatchingFile")] MachineZone machineZone)
         {
             if (ModelState.IsValid)
             {
-                _context.Add(machine);
+                _context.Add(machineZone);
                 await _context.SaveChangesAsync();
-                return RedirectToAction(nameof(IndexMachineArea));
+                return RedirectToAction(nameof(IndexMachineZones));
             }
-            return View(machine);
+            return View(machineZone);
         }
 
-        // GET: Machines/Edit/5
+        // GET: MachineZones/Edit/5
         public async Task<IActionResult> Edit(int? id)
         {
             if (id == null)
@@ -74,22 +73,22 @@ namespace LOTO.Controllers
                 return NotFound();
             }
 
-            var machine = await _context.Machine.FindAsync(id);
-            if (machine == null)
+            var machineZone = await _context.MachineZone.FindAsync(id);
+            if (machineZone == null)
             {
                 return NotFound();
             }
-            return View(machine);
+            return View(machineZone);
         }
 
-        // POST: Machines/Edit/5
+        // POST: MachineZones/Edit/5
         // To protect from overposting attacks, please enable the specific properties you want to bind to, for 
         // more details see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public async Task<IActionResult> Edit(int id, [Bind("ID,MachineName,Site,Building,Notes,MachineMap")] Machine machine)
+        public async Task<IActionResult> Edit(int id, [Bind("Id,Zone,ZoneMapFile,HatchingFile")] MachineZone machineZone)
         {
-            if (id != machine.ID)
+            if (id != machineZone.Id)
             {
                 return NotFound();
             }
@@ -98,12 +97,12 @@ namespace LOTO.Controllers
             {
                 try
                 {
-                    _context.Update(machine);
+                    _context.Update(machineZone);
                     await _context.SaveChangesAsync();
                 }
                 catch (DbUpdateConcurrencyException)
                 {
-                    if (!MachineExists(machine.ID))
+                    if (!MachineZoneExists(machineZone.Id))
                     {
                         return NotFound();
                     }
@@ -112,12 +111,12 @@ namespace LOTO.Controllers
                         throw;
                     }
                 }
-                return RedirectToAction(nameof(IndexMachineArea));
+                return RedirectToAction(nameof(IndexMachineZones));
             }
-            return View(machine);
+            return View(machineZone);
         }
 
-        // GET: Machines/Delete/5
+        // GET: MachineZones/Delete/5
         public async Task<IActionResult> Delete(int? id)
         {
             if (id == null)
@@ -125,32 +124,30 @@ namespace LOTO.Controllers
                 return NotFound();
             }
 
-            var machine = await _context.Machine
-                .FirstOrDefaultAsync(m => m.ID == id);
-            if (machine == null)
+            var machineZone = await _context.MachineZone
+                .FirstOrDefaultAsync(m => m.Id == id);
+            if (machineZone == null)
             {
                 return NotFound();
             }
 
-            return View(machine);
+            return View(machineZone);
         }
 
-        // POST: Machines/Delete/5
+        // POST: MachineZones/Delete/5
         [HttpPost, ActionName("Delete")]
         [ValidateAntiForgeryToken]
         public async Task<IActionResult> DeleteConfirmed(int id)
         {
-            var machine = await _context.Machine.FindAsync(id);
-            _context.Machine.Remove(machine);
+            var machineZone = await _context.MachineZone.FindAsync(id);
+            _context.MachineZone.Remove(machineZone);
             await _context.SaveChangesAsync();
-            return RedirectToAction(nameof(IndexMachineArea));
+            return RedirectToAction(nameof(IndexMachineZones));
         }
 
-        private bool MachineExists(int id)
+        private bool MachineZoneExists(int id)
         {
-            return _context.Machine.Any(e => e.ID == id);
+            return _context.MachineZone.Any(e => e.Id == id);
         }
-        #endregion
-
     }
 }

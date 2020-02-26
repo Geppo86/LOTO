@@ -31,13 +31,4 @@ namespace LOTO.Models
         public MachineZone Zone { get; set; }
     }
 
-    public class MachineZone
-    {
-        public int Id { get; set;}
-        public string Zone { get; set; }
-
-        public string ZoneMapFile { get; set; }
-
-        public string HatchingFile { get; set; }
-    }
 }

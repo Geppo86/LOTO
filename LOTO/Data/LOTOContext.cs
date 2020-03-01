@@ -18,5 +18,7 @@ namespace LOTO.Data
         public DbSet<LOTO.Models.Task> Task { get; set; }
         public DbSet<LOTO.Models.LockoutPoint> LockoutPoint { get; set; }
         public DbSet<LOTO.Models.MachineZone> MachineZone { get; set; }
+        public DbSet<LOTO.Models.User> User { get; set; }
+        public DbSet<LOTO.Models.Procedure> Procedure { get; set; }
     }
 }

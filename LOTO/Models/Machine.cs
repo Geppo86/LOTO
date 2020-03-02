@@ -25,8 +25,13 @@ namespace LOTO.Models
         [Display(Name = "Notes")]
         public string Notes { get; set; }
 
+        /*Machine map on a file to pload*/
         [Display(Name = "Machine Map")]
         public string MachineMap { get; set; }
+
+        /*Machine Plate on a file to upload*/
+        [Display(Name =" Machine Plate")]
+        public string Plate { get; set; }
 
         public MachineZone Zone { get; set; }
     }

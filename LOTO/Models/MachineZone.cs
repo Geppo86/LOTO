@@ -16,7 +16,11 @@ namespace LOTO.Models
         [Display(Name = "Zone Map File")]
         public string ZoneMapFile { get; set; }
 
-        [Display(Name = "Hatching File")]
-        public string HatchingFile { get; set; }
+        /*We need this entry for the same color 
+        on the grid in case we have to machine zone linked */
+        public string LinkedMachineZone { get; set; }
+        /*Final Document to make and pass in a link*/
+        [Display(Name = "Document")]
+        public string Document { get; set; }
     }
 }

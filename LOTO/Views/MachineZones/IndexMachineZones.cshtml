@@ -55,9 +55,6 @@
                         <th>
                             @Html.DisplayNameFor(model => model.ZoneMapFile)
                         </th>
-                        <th>
-                            @Html.DisplayNameFor(model => model.HatchingFile)
-                        </th>
                         <th></th>
                     </tr>
                 </thead>
@@ -72,7 +69,7 @@
                                 @Html.DisplayFor(modelItem => item.ZoneMapFile)
                             </td>
                             <td>
-                                <button type="button" class="btn btn-link" onclick="location.href='@Url.Action("IndexMachineZones", "MachineZones")'">@Html.DisplayFor(modelItem => item.HatchingFile)</button>
+                               @* <button type="button" class="btn btn-link" onclick="location.href='@Url.Action("IndexMachineZones", "MachineZones")'">@Html.DisplayFor(modelItem => item.HatchingFile)</button>*@
                                 @*<a>@Html.DisplayFor(modelItem => item.HatchingFile)</a>*@
                             </td>
                             <td>

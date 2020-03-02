@@ -29,11 +29,11 @@ namespace LOTO.Models
         [Display(Name = "Machine Map")]
         public string MachineMap { get; set; }
 
-        /*Machine Plate on a file to upload*/
-        [Display(Name =" Machine Plate")]
-        public string Plate { get; set; }
+        ///*Machine Plate on a file to upload*/
+        //[Display(Name =" Machine Plate")]
+        //public string Plate { get; set; }
 
-        public MachineZone Zone { get; set; }
+        //public MachineZone Zone { get; set; }
     }
 
 }

@@ -10,23 +10,22 @@ using LOTO.Models;
 
 namespace LOTO.Controllers
 {
-    public class MachinesController : Controller
+    public class FacilitiesController : Controller
     {
         private readonly LOTOContext _context;
 
-        public MachinesController(LOTOContext context)
+        public FacilitiesController(LOTOContext context)
         {
             _context = context;
         }
 
-        // GET: Machines
-        public async Task<IActionResult> IndexMachines()
+        // GET: Facilities
+        public async Task<IActionResult> IndexFacilities()
         {
-            return View(await _context.Machine.ToListAsync());
+            return View(await _context.Facility.ToListAsync());
         }
 
-        #region CRUD operation on a Machine
-        // GET: Machines/Details/5
+        // GET: Facilities/Details/5
         public async Task<IActionResult> Details(int? id)
         {
             if (id == null)
@@ -34,39 +33,39 @@ namespace LOTO.Controllers
                 return NotFound();
             }
 
-            var machine = await _context.Machine
+            var facility = await _context.Facility
                 .FirstOrDefaultAsync(m => m.ID == id);
-            if (machine == null)
+            if (facility == null)
             {
                 return NotFound();
             }
 
-            return View(machine);
+            return View(facility);
         }
 
-        // GET: Machines/Create
+        // GET: Facilities/Create
         public IActionResult Create()
         {
             return View();
         }
 
-        // POST: Machines/Create
+        // POST: Facilities/Create
         // To protect from overposting attacks, please enable the specific properties you want to bind to, for 
         // more details see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public async Task<IActionResult> Create([Bind("ID,MachineName,Site,Building,Notes,MachineMap")] Machine machine)
+        public async Task<IActionResult> Create([Bind("ID,FacilityName,FacilityLocation")] Facility facility)
         {
             if (ModelState.IsValid)
             {
-                _context.Add(machine);
+                _context.Add(facility);
                 await _context.SaveChangesAsync();
-                return RedirectToAction(nameof(IndexMachines));
+                return RedirectToAction(nameof(IndexFacilities));
             }
-            return View(machine);
+            return View(facility);
         }
 
-        // GET: Machines/Edit/5
+        // GET: Facilities/Edit/5
         public async Task<IActionResult> Edit(int? id)
         {
             if (id == null)
@@ -74,22 +73,22 @@ namespace LOTO.Controllers
                 return NotFound();
             }
 
-            var machine = await _context.Machine.FindAsync(id);
-            if (machine == null)
+            var facility = await _context.Facility.FindAsync(id);
+            if (facility == null)
             {
                 return NotFound();
             }
-            return View(machine);
+            return View(facility);
         }
 
-        // POST: Machines/Edit/5
+        // POST: Facilities/Edit/5
         // To protect from overposting attacks, please enable the specific properties you want to bind to, for 
         // more details see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public async Task<IActionResult> Edit(int id, [Bind("ID,MachineName,Site,Building,Notes,MachineMap")] Machine machine)
+        public async Task<IActionResult> Edit(int id, [Bind("ID,FacilityName,FacilityLocation")] Facility facility)
         {
-            if (id != machine.ID)
+            if (id != facility.ID)
             {
                 return NotFound();
             }
@@ -98,12 +97,12 @@ namespace LOTO.Controllers
             {
                 try
                 {
-                    _context.Update(machine);
+                    _context.Update(facility);
                     await _context.SaveChangesAsync();
                 }
                 catch (DbUpdateConcurrencyException)
                 {
-                    if (!MachineExists(machine.ID))
+                    if (!FacilityExists(facility.ID))
                     {
                         return NotFound();
                     }
@@ -112,12 +111,12 @@ namespace LOTO.Controllers
                         throw;
                     }
                 }
-                return RedirectToAction(nameof(IndexMachines));
+                return RedirectToAction(nameof(IndexFacilities));
             }
-            return View(machine);
+            return View(facility);
         }
 
-        // GET: Machines/Delete/5
+        // GET: Facilities/Delete/5
         public async Task<IActionResult> Delete(int? id)
         {
             if (id == null)
@@ -125,32 +124,30 @@ namespace LOTO.Controllers
                 return NotFound();
             }
 
-            var machine = await _context.Machine
+            var facility = await _context.Facility
                 .FirstOrDefaultAsync(m => m.ID == id);
-            if (machine == null)
+            if (facility == null)
             {
                 return NotFound();
             }
 
-            return View(machine);
+            return View(facility);
         }
 
-        // POST: Machines/Delete/5
+        // POST: Facilities/Delete/5
         [HttpPost, ActionName("Delete")]
         [ValidateAntiForgeryToken]
         public async Task<IActionResult> DeleteConfirmed(int id)
         {
-            var machine = await _context.Machine.FindAsync(id);
-            _context.Machine.Remove(machine);
+            var facility = await _context.Facility.FindAsync(id);
+            _context.Facility.Remove(facility);
             await _context.SaveChangesAsync();
-            return RedirectToAction(nameof(IndexMachines));
+            return RedirectToAction(nameof(IndexFacilities));
         }
 
-        private bool MachineExists(int id)
+        private bool FacilityExists(int id)
         {
-            return _context.Machine.Any(e => e.ID == id);
+            return _context.Facility.Any(e => e.ID == id);
         }
-        #endregion
-
     }
 }

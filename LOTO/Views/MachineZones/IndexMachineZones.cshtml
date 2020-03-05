@@ -8,84 +8,68 @@
     <head>
         <meta name="viewport" content="width=device-width, initial-scale=1">
         <style>
-            body {
-                font-family: Arial;
+            .container {
+                 display: table;
+                 width: 50%;
+                 padding-right: 15px;
+                 padding-left: 15px;
             }
-
-            .split {
-                height: 100%;
-                width: 70%;
-                top: 0;
-                overflow-x: hidden;
+            .left-half {
+              position: absolute;
+              left: 0px;
+              width: 50%;
             }
-
-            .left {
-                left: 0;
-            }
-            .right {
-                right: 0;
-            }
-
-            .centered {
+            .right-half {
                 position: absolute;
-                top: 50%;
-                left: 50%;
-                transform: translate(-50%, -50%);
-                text-align: center;
+                right: 0px;
+                width: 50%;
             }
-
-                .centered img {
-                    width: 150px;
-                    border-radius: 50%;
-                }
         </style>
     </head>
     <body>
-        <div class="split left">
-            <h1>Machine Zones</h1>
-            <p>
-                <a asp-action="Create">Add Zone</a>
-            </p>
-            <table class="table">
-                <thead>
-                    <tr>
-                        <th>
-                            @Html.DisplayNameFor(model => model.Zone)
-                        </th>
-                        <th>
-                            @Html.DisplayNameFor(model => model.ZoneMapFile)
-                        </th>
-                        <th></th>
-                    </tr>
-                </thead>
-                <tbody>
-                    @foreach (var item in Model)
-                    {
+
+        <h1>Machine Zones</h1>
+        <p>
+            <a asp-action="Create">Add Zone</a>
+        </p>
+        <section class="container">
+            <div class="left-half">
+                <table class="table">
+                    <thead>
                         <tr>
-                            <td>
-                                @Html.DisplayFor(modelItem => item.Zone)
-                            </td>
-                            <td>
-                                @Html.DisplayFor(modelItem => item.ZoneMapFile)
-                            </td>
-                            <td>
-                               @* <button type="button" class="btn btn-link" onclick="location.href='@Url.Action("IndexMachineZones", "MachineZones")'">@Html.DisplayFor(modelItem => item.HatchingFile)</button>*@
-                                @*<a>@Html.DisplayFor(modelItem => item.HatchingFile)</a>*@
-                            </td>
-                            <td>
-                                <button type="button" class="btn btn-link" onclick="location.href='@Url.Action("IndexTasks", "Tasks")'">Open Tasks</button> |
-                                <a asp-action="Details" asp-route-id="@item.Id">Details</a> |
-                                <a asp-action="Edit" asp-route-id="@item.Id">Edit</a> |
-                                <a asp-action="Delete" asp-route-id="@item.Id">Delete</a>
-                            </td>
+                            <th>
+                                @Html.DisplayNameFor(model => model.Zone)
+                            </th>
+                            <th>
+                                @Html.DisplayNameFor(model => model.ZoneMapFile)
+                            </th>
+                            <th></th>
                         </tr>
-                    }
-                </tbody>
-            </table>
-        </div>
-        <div class="split right">
-            @*<div class="centered">*@
+                    </thead>
+                    <tbody>
+                        @foreach (var item in Model)
+                        {
+                            <tr>
+                                <td>
+                                    @Html.DisplayFor(modelItem => item.Zone)
+                                </td>
+                                <td>
+                                    @Html.DisplayFor(modelItem => item.ZoneMapFile)
+                                </td>
+                                <td>
+                                    <button type="button" class="btn btn-link" onclick="location.href='@Url.Action("IndexTasks", "Tasks")'">Open Tasks</button> |
+                                    <a asp-action="Details" asp-route-id="@item.Id">Details</a> |
+                                    <a asp-action="Edit" asp-route-id="@item.Id">Edit</a> |
+                                    <a asp-action="Delete" asp-route-id="@item.Id">Delete</a>
+                                </td>
+                            </tr>
+                        }
+                    </tbody>
+                </table>
+            </div>
+            <div class="right-half">
                 <img src="images/image.jpg" alt="Sample Photo" />
-            @*</div>*@
-        </div>
-</body>
+            </div>
+        </section>
+    </body>
+</html>

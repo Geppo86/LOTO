@@ -7,7 +7,7 @@ namespace LOTO.Models
 {
     public class ConfirmationPoint
     {
-        public int CPID { get; set; }
+        public int ID { get; set; }
 
         public string ConfirmationDeviceName {get;set;}
 

@@ -6,6 +6,7 @@ using System.Threading.Tasks;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.Extensions.Logging;
 using LOTO.Models;
+using SmartBreadcrumbs.Attributes;
 
 namespace LOTO.Controllers
 {
@@ -17,7 +18,7 @@ namespace LOTO.Controllers
         {
             _logger = logger;
         }
-
+        [DefaultBreadcrumb("Home")]
         public IActionResult Index()
         {
             return View();

@@ -4,14 +4,16 @@ using LOTO.Data;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
 using Microsoft.EntityFrameworkCore.Metadata;
+using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 
 namespace LOTO.Migrations
 {
     [DbContext(typeof(LOTOContext))]
-    partial class LOTOContextModelSnapshot : ModelSnapshot
+    [Migration("20200310173627_3102020")]
+    partial class _3102020
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder

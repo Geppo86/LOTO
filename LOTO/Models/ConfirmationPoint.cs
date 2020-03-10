@@ -7,7 +7,7 @@ namespace LOTO.Models
 {
     public class ConfirmationPoint
     {
-        public int ID { get; set; }
+        public int CPID { get; set; }
 
         public string ConfirmationDeviceName {get;set;}
 
@@ -16,5 +16,9 @@ namespace LOTO.Models
         public string ConfirmationDeviceSafeStatus { get; set; }
 
         public string ConfirmationDevicePicture { get; set; }
+
+        public string ConfirmationDeviceType { get; set; }
+
+        public string LocationDescription { get; set; }
     }
 }

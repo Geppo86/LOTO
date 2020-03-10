@@ -8,7 +8,10 @@ namespace LOTO.Models
 {
     public class Machine
     {
-        public int ID { get; set; }
+        public int MID { get; set; }
+
+        [Display(Name = "Machine Serial Number")]
+        public string MachineSerialName { get; set; }
 
         [Display(Name = "Machine OEM Name")]
         public string MachineOemName { get; set; }
@@ -21,6 +24,9 @@ namespace LOTO.Models
 
         [Display(Name = "Building")]
         public string Building { get; set; }
+
+        [Display(Name = "Machine Picture File")]
+        public string MachinePictureFile { get; set; }
 
         [Display(Name = "Notes")]
         public string Notes { get; set; }

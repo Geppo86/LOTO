@@ -11,7 +11,7 @@ namespace LOTO.Models
 
         public string ConfirmationDeviceName {get;set;}
 
-        public string LockOutTag { get; set; }
+        public string ConfirmationTagNumber { get; set; }
 
         public string ConfirmationDeviceSafeStatus { get; set; }
 

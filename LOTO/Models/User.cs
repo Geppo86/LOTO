@@ -7,7 +7,7 @@ namespace LOTO.Models
 {
     public class User
     {
-        public int UID { get; set; }
+        public int ID { get; set; }
         public string FirstName { get; set; }
         public string LastName { get; set; }
         public DateTime DOB { get; set; }

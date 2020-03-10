@@ -34,7 +34,7 @@ namespace LOTO.Controllers
             }
 
             var user = await _context.User
-                .FirstOrDefaultAsync(m => m.id == id);
+                .FirstOrDefaultAsync(m => m.ID == id);
             if (user == null)
             {
                 return NotFound();
@@ -88,7 +88,7 @@ namespace LOTO.Controllers
         [ValidateAntiForgeryToken]
         public async Task<IActionResult> Edit(int id, [Bind("id,Name,Last,Dob")] User user)
         {
-            if (id != user.id)
+            if (id != user.ID)
             {
                 return NotFound();
             }
@@ -102,7 +102,7 @@ namespace LOTO.Controllers
                 }
                 catch (DbUpdateConcurrencyException)
                 {
-                    if (!UserExists(user.id))
+                    if (!UserExists(user.ID))
                     {
                         return NotFound();
                     }
@@ -125,7 +125,7 @@ namespace LOTO.Controllers
             }
 
             var user = await _context.User
-                .FirstOrDefaultAsync(m => m.id == id);
+                .FirstOrDefaultAsync(m => m.ID == id);
             if (user == null)
             {
                 return NotFound();
@@ -147,7 +147,7 @@ namespace LOTO.Controllers
 
         private bool UserExists(int id)
         {
-            return _context.User.Any(e => e.id == id);
+            return _context.User.Any(e => e.ID == id);
         }
     }
 }

@@ -19,9 +19,9 @@
             <th>
                 @Html.DisplayNameFor(model => model.Map)
             </th>
-            <th>
+            @*<th>
                 @Html.DisplayNameFor(model => model.Coordinates)
-            </th>
+            </th>*@
             <th></th>
         </tr>
     </thead>
@@ -34,14 +34,14 @@
             <td>
                 @Html.DisplayFor(modelItem => item.Map)
             </td>
-            <td>
+            @*<td>
                 @Html.DisplayFor(modelItem => item.Coordinates)
-            </td>
+            </td>*@
             <td>
                 <a asp-action="Edit" asp-route-id="@item.ID">Edit</a> |
                 <a asp-action="Details" asp-route-id="@item.ID">Details</a> |
                 <a asp-action="Delete" asp-route-id="@item.ID">Delete</a> |
-                <button type="button" class="btn btn-link" onclick="location.href='@Url.Action("IndexMachines", "Machines")'">Machines Area</button>
+                <button type="button" class="btn btn-link" onclick="location.href='@Url.Action("IndexMachines", "Machines")'">Machines</button>
             </td>
         </tr>
 }

@@ -14,8 +14,8 @@ namespace LOTO.Models
         public string NameBuilding { get; set; }
         [Display(Name = "Map")]
         public string Map { get; set; }
-        [Display(Name = "Coordinates")]
-        public string Coordinates { get; set; }
+        //[Display(Name = "Coordinates")]
+        //public string Coordinates { get; set; }
 
         public int Task { get; set; }
     }

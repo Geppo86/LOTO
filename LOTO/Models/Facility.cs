@@ -13,7 +13,7 @@ namespace LOTO.Models
         [Display(Name = "Facility Name")]
         public string FacilityName { get; set; }
 
-        [Display(Name = "City")]
+        [Display(Name = "Location")]
         public string FacilityLocation { get; set; }
     }
 }

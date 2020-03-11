@@ -39,7 +39,7 @@ namespace LOTO.Models
         public string CustomerDefinedArea { get; set; }
 
         ///*Machine Plate on a file to upload*/
-        //[Display(Name =" Machine Plate")]
+        //[Display(Name =" Machine Plate")]  // Why is this commented out? On the UML it's listed as an attribute.
         //public string Plate { get; set; }
 
         //public MachineZone Zone { get; set; }

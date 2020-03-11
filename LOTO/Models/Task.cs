@@ -14,7 +14,7 @@ namespace LOTO.Models
         public string TaskName { get; set; }
         //public Procedure Procedure { get; set; } // Commented out as Procedure Class was "removed" below. Didin't seem relevant anymore.
     }
-
+     
     //public class Procedure
     //{
     //    public int Id { get; set; }

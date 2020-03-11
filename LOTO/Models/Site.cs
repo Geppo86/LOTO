@@ -6,14 +6,12 @@ using System.Threading.Tasks;
 
 namespace LOTO.Models
 {
-    public class Facility
+    public class Site
     {
-        [Display(Name = "Facility Name")]
-        public string FacilityName { get; set; }
-
         public int ID { get; set; }
 
-        [Display(Name = "Location")]
-        public string FacilityLocation { get; set; }
+        [Display(Name = "Site Name")]
+        public string SiteName { get; set; }
+
     }
 }

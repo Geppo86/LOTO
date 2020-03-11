@@ -16,6 +16,9 @@ namespace LOTO.Models
         [Display(Name = "Zone Map File")]
         public string ZoneMapFile { get; set; }
 
+        [Display(Name = "Machine Zone Description")]
+        public string MachineZoneDescription { get; set; }
+
         /*We need this entry for the same color 
         //on the grid in case we have to machine zone linked */
         //public string LinkedMachineZone { get; set; }

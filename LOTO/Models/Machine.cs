@@ -16,10 +16,10 @@ namespace LOTO.Models
         [Display(Name = "Machine OEM Name")]
         public string MachineOemName { get; set; }
 
-        [Display(Name = "Machine Common")]
+        [Display(Name = "Machine Common Name")] //Added "Name" after "Common" to prevent confusion.
         public string MachineName { get; set; }
 
-        [Display(Name = "Site")]
+        [Display(Name = "Site")]              // Do lines 22-26 need to be here? Couldn't we reference them using data from Site/Building classes since all classes defined thus far are public?
         public string Site { get; set; }
 
         [Display(Name = "Building")]
@@ -28,18 +28,19 @@ namespace LOTO.Models
         [Display(Name = "Machine Picture File")]
         public string MachinePictureFile { get; set; }
 
-        [Display(Name = "Notes")]
-        public string Notes { get; set; }
+        [Display(Name =" Machine Name Plate")]  
+        public string MachineNamePlate { get; set; }
+
+        [Display(Name = "Customer Defined Area")]
+        public string CustomerDefinedArea { get; set; }
+
+        //[Display(Name = "Notes")]
+        //public string Notes { get; set; }
 
         /*Machine map on a file to pload*/
-        [Display(Name = "Machine Map")]
-        public string MachineMap { get; set; }
+        //[Display(Name = "Machine Map")]
+        //public string MachineMap { get; set; }
 
-        ///*Machine Plate on a file to upload*/
-        //[Display(Name =" Machine Plate")]
-        //public string Plate { get; set; }
-
-        //public MachineZone Zone { get; set; }
     }
 
 }

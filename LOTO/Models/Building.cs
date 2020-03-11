@@ -12,11 +12,13 @@ namespace LOTO.Models
 
         [Display(Name = "Name/Number")]
         public string NameBuilding { get; set; }
+        
         [Display(Name = "Map")]
         public string Map { get; set; }
+        
         [Display(Name = "Coordinates")]
         public string Coordinates { get; set; }
 
-        public int Task { get; set; }
+       // public int Task { get; set; }
     }
 }

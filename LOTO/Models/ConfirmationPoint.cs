@@ -9,16 +9,18 @@ namespace LOTO.Models
     {
         public int ID { get; set; }
 
-        public string ConfirmationDeviceName {get;set;}
-
         public string ConfirmationTagNumber { get; set; }
+
+        public string ConfirmationDeviceType { get; set; }
 
         public string ConfirmationDeviceSafeStatus { get; set; }
 
         public string ConfirmationDevicePicture { get; set; }
 
-        public string ConfirmationDeviceType { get; set; }
-
         public string LocationDescription { get; set; }
+
+        public string ConfirmationDeviceName {get;set;}
+
+        
     }
 }

@@ -8,19 +8,15 @@ namespace LOTO.Models
 {
     public class Task
     {
-        public MachineZone Zone { get; set; }
         public int ID { get; set; }
-        [Display(Name="Task Name")]
+
+        [Display(Name = "Task Name")]
         public string TaskName { get; set; }
-        public Procedure Procedure { get; set; }
-    }
 
-    public class Procedure
-    {
-        public int Id { get; set; }
-        public string Name { get; set; }
-        public string step { get; set; }
-
-        public LockoutPoint Lockoutpoint { get; set; }
+        public MachineZone Zone { get; set; } // Is this meant to be a foriegn key? It doesn't seem to match the color format that I saw before. 
+        
+        
+        
     }
+    
 }

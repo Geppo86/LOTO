@@ -28,21 +28,19 @@ namespace LOTO.Models
         [Display(Name = "Machine Picture File")]
         public string MachinePictureFile { get; set; }
 
-        [Display(Name = "Notes")]
-        public string Notes { get; set; }
-
-        /*Machine map on a file to pload*/
-        [Display(Name = "Machine Map")]
-        public string MachineMap { get; set; }
+        [Display(Name =" Machine Name Plate")]  
+        public string MachineNamePlate { get; set; }
 
         [Display(Name = "Customer Defined Area")]
         public string CustomerDefinedArea { get; set; }
 
-        ///*Machine Plate on a file to upload*/
-        //[Display(Name =" Machine Plate")]  // Why is this commented out? On the UML it's listed as an attribute.
-        //public string Plate { get; set; }
+        //[Display(Name = "Notes")]
+        //public string Notes { get; set; }
 
-        //public MachineZone Zone { get; set; }
+        /*Machine map on a file to pload*/
+        //[Display(Name = "Machine Map")]
+        //public string MachineMap { get; set; }
+
     }
 
 }

@@ -18,13 +18,15 @@ namespace LOTO.Models
 
         public string Device { get; set; }
 
+        public string LockoutPointPicture { get; set; }
+
         public string MethodToIsolate { get; set; }
 
         public string MethodToVerify { get; set; }
 
         public int ConfirmationDeviceID { get; set; }
        
-        public string LockoutPointPicture { get; set; }
+        
 
 
     }

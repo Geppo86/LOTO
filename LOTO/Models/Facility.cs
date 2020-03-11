@@ -8,10 +8,10 @@ namespace LOTO.Models
 {
     public class Facility
     {
-        public int ID { get; set; }
-
         [Display(Name = "Facility Name")]
         public string FacilityName { get; set; }
+
+        public int ID { get; set; }
 
         [Display(Name = "Location")]
         public string FacilityLocation { get; set; }

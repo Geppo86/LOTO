@@ -15,8 +15,9 @@ namespace LOTO.Models
 
         public DateTime DOB { get; set; }
 
-        public string EmployeeID {get; set; }
+        public string EmployeeID { get; set; }
 
         public string AuthorizationLevel { get; set; }
+    }
 
 }

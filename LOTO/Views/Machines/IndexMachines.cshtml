@@ -23,12 +23,12 @@
             <th>
                 @Html.DisplayNameFor(model => model.Building)
             </th>
-            <th>
+            @*<th>
                 @Html.DisplayNameFor(model => model.Notes)
             </th>
             <th>
                 @Html.DisplayNameFor(model => model.MachineMap)
-            </th>
+            </th>*@
             <th></th>
         </tr>
     </thead>
@@ -44,12 +44,12 @@
             <td>
                 @Html.DisplayFor(modelItem => item.Building)
             </td>
-            <td>
+            @*<td>
                 @Html.DisplayFor(modelItem => item.Notes)
             </td>
             <td>
                 @Html.DisplayFor(modelItem => item.MachineMap)
-            </td>
+            </td>*@
             <td>
                 <a asp-action="Details" asp-route-id="@item.ID">Open Machine</a> |
                 <a asp-action="Edit" asp-route-id="@item.ID">Edit</a> |

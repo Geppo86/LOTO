@@ -8,6 +8,7 @@ namespace LOTO.Models
 {
     public class Procedure
     {
+        public int Id { get; set; }
         public string LOTOorAPM { get; set; }
 
         public string Note { get; set; }

@@ -17,6 +17,6 @@ namespace LOTO.Models
         //[Display(Name = "Coordinates")]
         //public string Coordinates { get; set; }
 
-        public int Task { get; set; }
+       // public int Task { get; set; }
     }
 }

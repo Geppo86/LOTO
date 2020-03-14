@@ -15,7 +15,7 @@ namespace LOTO.Models
 
         public string DateLastAudit { get; set; }
 
-        public string NameLastAudit { get; set; }
+        public User UserID { get; set; } //Used to get last name of person who performed the most recent audit.
 
         public string ProcedureID { get; set; }
 

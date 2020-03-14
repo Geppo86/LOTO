@@ -11,7 +11,7 @@ namespace LOTO.Models
         public int Id { get; set; }
         
         [Display(Name = "Machine Zone")]
-        public string Zone { get; set; }
+        public string MachineZone { get; set; }
 
         [Display(Name = "Zone Map File")]
         public string ZoneMapFile { get; set; }

@@ -13,7 +13,10 @@ namespace LOTO.Models
         [Display(Name = "Task Name")]
         public string TaskName { get; set; }
 
-        public MachineZone Zone { get; set; } // Is this meant to be a foriegn key? It doesn't seem to match the color format that I saw before. 
+        public Procedure ProcedureId { get; set; }
+
+
+        public MachineZone Zone { get; set; } 
         
         
         

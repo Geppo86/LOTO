@@ -17,7 +17,7 @@ namespace LOTO.Models
 
         public string EmployeeID { get; set; }
 
-        public string AuthorizationLevel { get; set; }
+        public string Role { get; set; }
     }
 
 }

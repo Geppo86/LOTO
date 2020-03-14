@@ -13,7 +13,5 @@ namespace LOTO.Models
 
         public int ID { get; set; }
 
-        [Display(Name = "Location")]
-        public string FacilityLocation { get; set; }
     }
 }

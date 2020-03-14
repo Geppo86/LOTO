@@ -19,9 +19,6 @@ namespace LOTO.Models
         [Display(Name = "Machine Common Name")] //Added "Name" after "Common" to prevent confusion.
         public string MachineName { get; set; }
 
-        [Display(Name = "Site")]              // Do lines 22-26 need to be here? Couldn't we reference them using data from Site/Building classes since all classes defined thus far are public?
-        public string Site { get; set; }
-
         [Display(Name = "Building")]
         public string Building { get; set; }
 

@@ -16,7 +16,7 @@ namespace LOTO.Models
         public Procedure ProcedureId { get; set; }
 
 
-        public MachineZone Zone { get; set; } 
+        public MachineZone MachineZoneId { get; set; } 
         
         
         

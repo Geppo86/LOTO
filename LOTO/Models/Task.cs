@@ -8,15 +8,15 @@ namespace LOTO.Models
 {
     public class Task
     {
-        public int ID { get; set; }
+        public int TID { get; set; }
 
         [Display(Name = "Task Name")]
         public string TaskName { get; set; }
 
-        public Procedure ProcedureId { get; set; }
+        public Procedure PID { get; set; } //Foreign Key
 
 
-        public MachineZone MachineZoneId { get; set; } 
+        public MachineZone MZID { get; set; } //Foreign Key
         
         
         

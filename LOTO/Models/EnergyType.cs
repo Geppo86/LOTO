@@ -7,7 +7,7 @@ namespace LOTO.Models
 {
     public class EnergyType
     {
-        public int EnergyTypeID { get; set; }
+        public int ETID { get; set; }
 
         public string EnergyTypeName { get; set; }
 

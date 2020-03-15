@@ -8,9 +8,9 @@ namespace LOTO.Models
 {
     public class Building
     {
-        public int ID { get; set; }
+        public int BID { get; set; }
 
-        [Display(Name = "Name/Number")]
+        [Display(Name = "Building Name/Number")]
         public string NameBuilding { get; set; }
         
         [Display(Name = "Map")]

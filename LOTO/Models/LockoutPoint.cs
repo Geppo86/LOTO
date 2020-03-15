@@ -7,12 +7,12 @@ namespace LOTO.Models
 {
     public class LockoutPoint
     {
-        public int ID { get; set; }
+        public int LPID { get; set; }
         public string LockoutTagNumber { get; set; }
 
         public string LocationDescription { get; set; }
 
-        public int EnergyTypeID { get; set; }
+        public EnergyType ETID { get; set; } //Foreign Key
 
         public string EnergyMagnitude { get; set; }
 
@@ -24,7 +24,7 @@ namespace LOTO.Models
 
         public string MethodToVerify { get; set; }
 
-        public int ConfirmationDeviceID { get; set; }
+        public ConfirmationPoint CPID { get; set; } //Foreign Key
        
         
 

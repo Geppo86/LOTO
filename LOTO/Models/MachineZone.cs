@@ -8,7 +8,9 @@ namespace LOTO.Models
 {
     public class MachineZone
     {
-        public int Id { get; set; }
+        public int MZID { get; set; }
+
+        public Machine MID { get; set; } //Foreign Key
         
         [Display(Name = "Machine Zone")]
         public string MachineZone { get; set; }

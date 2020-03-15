@@ -7,9 +7,9 @@ namespace LOTO.Models
 {
     public class LockpointConfirmationXRef
     {
-        public int LockoutPointID { get; set; }
+        public LockoutPoint LPID { get; set; } //Foreign Key
         
-        public int ConfirmationDeviceID { get; set; }
+        public ConfirmationPoint CPID { get; set; } //Foreign Key
 
 
     }

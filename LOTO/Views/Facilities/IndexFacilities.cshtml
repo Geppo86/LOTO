@@ -22,9 +22,6 @@
             <th>
                 @Html.DisplayNameFor(model => model.FacilityName)
             </th>
-            <th>
-                @Html.DisplayNameFor(model => model.FacilityLocation)
-            </th>
             <th></th>
         </tr>
     </thead>
@@ -35,12 +32,9 @@
                 @Html.DisplayFor(modelItem => item.FacilityName)
             </td>
             <td>
-                @Html.DisplayFor(modelItem => item.FacilityLocation)
-            </td>
-            <td>
-                <a asp-action="Edit" asp-route-id="@item.ID">Edit</a> |
-                <a asp-action="Details" asp-route-id="@item.ID">Details</a> |
-                <a asp-action="Delete" asp-route-id="@item.ID">Delete</a> |
+                <a asp-action="Edit" asp-route-id="@item.FID">Edit</a> |
+                <a asp-action="Details" asp-route-id="@item.FID">Details</a> |
+                <a asp-action="Delete" asp-route-id="@item.FID">Delete</a> |
                 <button type="button" class="btn btn-link" onclick="location.href='@Url.Action("IndexBuildings", "Buildings")'">Buildings</button>
             </td>
         </tr>

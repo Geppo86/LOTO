@@ -34,7 +34,7 @@ namespace LOTO.Controllers
             }
 
             var procedure = await _context.Procedure
-                .FirstOrDefaultAsync(m => m.Id == id);
+                .FirstOrDefaultAsync(m => m.PID == id);
             if (procedure == null)
             {
                 return NotFound();
@@ -88,7 +88,7 @@ namespace LOTO.Controllers
         [ValidateAntiForgeryToken]
         public async Task<IActionResult> Edit(int id, [Bind("Id,Name,step")] Procedure procedure)
         {
-            if (id != procedure.Id)
+            if (id != procedure.PID)
             {
                 return NotFound();
             }
@@ -102,7 +102,7 @@ namespace LOTO.Controllers
                 }
                 catch (DbUpdateConcurrencyException)
                 {
-                    if (!ProcedureExists(procedure.Id))
+                    if (!ProcedureExists(procedure.PID))
                     {
                         return NotFound();
                     }
@@ -125,7 +125,7 @@ namespace LOTO.Controllers
             }
 
             var procedure = await _context.Procedure
-                .FirstOrDefaultAsync(m => m.Id == id);
+                .FirstOrDefaultAsync(m => m.PID == id);
             if (procedure == null)
             {
                 return NotFound();
@@ -147,7 +147,7 @@ namespace LOTO.Controllers
 
         private bool ProcedureExists(int id)
         {
-            return _context.Procedure.Any(e => e.Id == id);
+            return _context.Procedure.Any(e => e.PID == id);
         }
     }
 }

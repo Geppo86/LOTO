@@ -34,7 +34,7 @@ namespace LOTO.Controllers
             }
 
             var machineZone = await _context.MachineZone
-                .FirstOrDefaultAsync(m => m.Id == id);
+                .FirstOrDefaultAsync(m => m.MZID == id);
             if (machineZone == null)
             {
                 return NotFound();
@@ -88,7 +88,7 @@ namespace LOTO.Controllers
         [ValidateAntiForgeryToken]
         public async Task<IActionResult> Edit(int id, [Bind("Id,Zone,ZoneMapFile,HatchingFile")] MachineZone machineZone)
         {
-            if (id != machineZone.Id)
+            if (id != machineZone.MZID)
             {
                 return NotFound();
             }
@@ -102,7 +102,7 @@ namespace LOTO.Controllers
                 }
                 catch (DbUpdateConcurrencyException)
                 {
-                    if (!MachineZoneExists(machineZone.Id))
+                    if (!MachineZoneExists(machineZone.MZID))
                     {
                         return NotFound();
                     }
@@ -125,7 +125,7 @@ namespace LOTO.Controllers
             }
 
             var machineZone = await _context.MachineZone
-                .FirstOrDefaultAsync(m => m.Id == id);
+                .FirstOrDefaultAsync(m => m.MZID == id);
             if (machineZone == null)
             {
                 return NotFound();
@@ -147,7 +147,7 @@ namespace LOTO.Controllers
 
         private bool MachineZoneExists(int id)
         {
-            return _context.MachineZone.Any(e => e.Id == id);
+            return _context.MachineZone.Any(e => e.MZID == id);
         }
     }
 }

@@ -13,7 +13,7 @@ namespace LOTO.Models
         public Machine MID { get; set; } //Foreign Key
         
         [Display(Name = "Machine Zone")]
-        public string MachineZone { get; set; }
+        public string NameMachineZone { get; set; }
 
         [Display(Name = "Zone Map File")]
         public string ZoneMapFile { get; set; }

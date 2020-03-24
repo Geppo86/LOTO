@@ -34,7 +34,7 @@ namespace LOTO.Controllers
             }
 
             var facility = await _context.Facility
-                .FirstOrDefaultAsync(m => m.ID == id);
+                .FirstOrDefaultAsync(m => m.FID == id);
             if (facility == null)
             {
                 return NotFound();
@@ -88,7 +88,7 @@ namespace LOTO.Controllers
         [ValidateAntiForgeryToken]
         public async Task<IActionResult> Edit(int id, [Bind("ID,FacilityName,FacilityLocation")] Facility facility)
         {
-            if (id != facility.ID)
+            if (id != facility.FID)
             {
                 return NotFound();
             }
@@ -102,7 +102,7 @@ namespace LOTO.Controllers
                 }
                 catch (DbUpdateConcurrencyException)
                 {
-                    if (!FacilityExists(facility.ID))
+                    if (!FacilityExists(facility.FID))
                     {
                         return NotFound();
                     }
@@ -125,7 +125,7 @@ namespace LOTO.Controllers
             }
 
             var facility = await _context.Facility
-                .FirstOrDefaultAsync(m => m.ID == id);
+                .FirstOrDefaultAsync(m => m.FID == id);
             if (facility == null)
             {
                 return NotFound();
@@ -147,7 +147,7 @@ namespace LOTO.Controllers
 
         private bool FacilityExists(int id)
         {
-            return _context.Facility.Any(e => e.ID == id);
+            return _context.Facility.Any(e => e.FID == id);
         }
     }
 }

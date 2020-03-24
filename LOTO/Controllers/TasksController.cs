@@ -34,7 +34,7 @@ namespace LOTO.Controllers
             }
 
             var task = await _context.Task
-                .FirstOrDefaultAsync(m => m.ID == id);
+                .FirstOrDefaultAsync(m => m.TID == id);
             if (task == null)
             {
                 return NotFound();
@@ -88,7 +88,7 @@ namespace LOTO.Controllers
         [ValidateAntiForgeryToken]
         public async Task<IActionResult> Edit(int id, [Bind("ID,TaskName")] Models.Task task)
         {
-            if (id != task.ID)
+            if (id != task.TID)
             {
                 return NotFound();
             }
@@ -102,7 +102,7 @@ namespace LOTO.Controllers
                 }
                 catch (DbUpdateConcurrencyException)
                 {
-                    if (!TaskExists(task.ID))
+                    if (!TaskExists(task.TID))
                     {
                         return NotFound();
                     }
@@ -125,7 +125,7 @@ namespace LOTO.Controllers
             }
 
             var task = await _context.Task
-                .FirstOrDefaultAsync(m => m.ID == id);
+                .FirstOrDefaultAsync(m => m.TID == id);
             if (task == null)
             {
                 return NotFound();
@@ -147,7 +147,7 @@ namespace LOTO.Controllers
 
         private bool TaskExists(int id)
         {
-            return _context.Task.Any(e => e.ID == id);
+            return _context.Task.Any(e => e.TID == id);
         }
     }
 }

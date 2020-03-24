@@ -34,7 +34,7 @@ namespace LOTO.Controllers
             }
 
             var building = await _context.Building
-                .FirstOrDefaultAsync(m => m.ID == id);
+                .FirstOrDefaultAsync(m => m.BID == id);
             if (building == null)
             {
                 return NotFound();
@@ -88,7 +88,7 @@ namespace LOTO.Controllers
         [ValidateAntiForgeryToken]
         public async Task<IActionResult> Edit(int id, [Bind("ID,NameBuilding,Map,Coordinates")] Building building)
         {
-            if (id != building.ID)
+            if (id != building.BID)
             {
                 return NotFound();
             }
@@ -102,7 +102,7 @@ namespace LOTO.Controllers
                 }
                 catch (DbUpdateConcurrencyException)
                 {
-                    if (!BuildingExists(building.ID))
+                    if (!BuildingExists(building.BID))
                     {
                         return NotFound();
                     }
@@ -125,7 +125,7 @@ namespace LOTO.Controllers
             }
 
             var building = await _context.Building
-                .FirstOrDefaultAsync(m => m.ID == id);
+                .FirstOrDefaultAsync(m => m.BID == id);
             if (building == null)
             {
                 return NotFound();
@@ -147,7 +147,7 @@ namespace LOTO.Controllers
 
         private bool BuildingExists(int id)
         {
-            return _context.Building.Any(e => e.ID == id);
+            return _context.Building.Any(e => e.BID == id);
         }
     }
 }

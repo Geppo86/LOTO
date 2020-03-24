@@ -35,7 +35,7 @@ namespace LOTO.Controllers
             }
 
             var machine = await _context.Machine
-                .FirstOrDefaultAsync(m => m.ID == id);
+                .FirstOrDefaultAsync(m => m.MID == id);
             if (machine == null)
             {
                 return NotFound();
@@ -89,7 +89,7 @@ namespace LOTO.Controllers
         [ValidateAntiForgeryToken]
         public async Task<IActionResult> Edit(int id, [Bind("ID,MachineName,Site,Building,Notes,MachineMap")] Machine machine)
         {
-            if (id != machine.ID)
+            if (id != machine.MID)
             {
                 return NotFound();
             }
@@ -103,7 +103,7 @@ namespace LOTO.Controllers
                 }
                 catch (DbUpdateConcurrencyException)
                 {
-                    if (!MachineExists(machine.ID))
+                    if (!MachineExists(machine.MID))
                     {
                         return NotFound();
                     }
@@ -126,7 +126,7 @@ namespace LOTO.Controllers
             }
 
             var machine = await _context.Machine
-                .FirstOrDefaultAsync(m => m.ID == id);
+                .FirstOrDefaultAsync(m => m.MID == id);
             if (machine == null)
             {
                 return NotFound();
@@ -148,7 +148,7 @@ namespace LOTO.Controllers
 
         private bool MachineExists(int id)
         {
-            return _context.Machine.Any(e => e.ID == id);
+            return _context.Machine.Any(e => e.MID == id);
         }
         #endregion
 

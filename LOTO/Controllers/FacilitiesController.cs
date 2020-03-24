@@ -33,14 +33,14 @@ namespace LOTO.Controllers
                 return NotFound();
             }
 
-            var facility = await _context.Facility
+            var Facility = await _context.Facility
                 .FirstOrDefaultAsync(m => m.FID == id);
-            if (facility == null)
+            if (Facility == null)
             {
                 return NotFound();
             }
 
-            return View(facility);
+            return View(Facility);
         }
 
         // GET: Facilities/Create
@@ -54,15 +54,15 @@ namespace LOTO.Controllers
         // more details see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public async Task<IActionResult> Create([Bind("ID,FacilityName,FacilityLocation")] Facility facility)
+        public async Task<IActionResult> Create([Bind("ID,FacilityName,FacilityLocation")] Facility Facility)
         {
             if (ModelState.IsValid)
             {
-                _context.Add(facility);
+                _context.Add(Facility);
                 await _context.SaveChangesAsync();
                 return RedirectToAction(nameof(IndexFacilities));
             }
-            return View(facility);
+            return View(Facility);
         }
 
         // GET: Facilities/Edit/5
@@ -73,12 +73,12 @@ namespace LOTO.Controllers
                 return NotFound();
             }
 
-            var facility = await _context.Facility.FindAsync(id);
-            if (facility == null)
+            var Facility = await _context.Facility.FindAsync(id);
+            if (Facility == null)
             {
                 return NotFound();
             }
-            return View(facility);
+            return View(Facility);
         }
 
         // POST: Facilities/Edit/5
@@ -86,9 +86,9 @@ namespace LOTO.Controllers
         // more details see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public async Task<IActionResult> Edit(int id, [Bind("ID,FacilityName,FacilityLocation")] Facility facility)
+        public async Task<IActionResult> Edit(int id, [Bind("ID,FacilityName,FacilityLocation")] Facility Facility)
         {
-            if (id != facility.FID)
+            if (id != Facility.FID)
             {
                 return NotFound();
             }
@@ -97,12 +97,12 @@ namespace LOTO.Controllers
             {
                 try
                 {
-                    _context.Update(facility);
+                    _context.Update(Facility);
                     await _context.SaveChangesAsync();
                 }
                 catch (DbUpdateConcurrencyException)
                 {
-                    if (!FacilityExists(facility.FID))
+                    if (!FacilityExists(Facility.FID))
                     {
                         return NotFound();
                     }
@@ -113,7 +113,7 @@ namespace LOTO.Controllers
                 }
                 return RedirectToAction(nameof(IndexFacilities));
             }
-            return View(facility);
+            return View(Facility);
         }
 
         // GET: Facilities/Delete/5
@@ -124,14 +124,14 @@ namespace LOTO.Controllers
                 return NotFound();
             }
 
-            var facility = await _context.Facility
+            var Facility = await _context.Facility
                 .FirstOrDefaultAsync(m => m.FID == id);
-            if (facility == null)
+            if (Facility == null)
             {
                 return NotFound();
             }
 
-            return View(facility);
+            return View(Facility);
         }
 
         // POST: Facilities/Delete/5
@@ -139,8 +139,8 @@ namespace LOTO.Controllers
         [ValidateAntiForgeryToken]
         public async Task<IActionResult> DeleteConfirmed(int id)
         {
-            var facility = await _context.Facility.FindAsync(id);
-            _context.Facility.Remove(facility);
+            var Facility = await _context.Facility.FindAsync(id);
+            _context.Facility.Remove(Facility);
             await _context.SaveChangesAsync();
             return RedirectToAction(nameof(IndexFacilities));
         }

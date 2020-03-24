@@ -33,14 +33,14 @@ namespace LOTO.Controllers
                 return NotFound();
             }
 
-            var task = await _context.Task
+            var Task = await _context.Task
                 .FirstOrDefaultAsync(m => m.TID == id);
-            if (task == null)
+            if (Task == null)
             {
                 return NotFound();
             }
 
-            return View(task);
+            return View(Task);
         }
 
         // GET: Tasks/Create
@@ -54,15 +54,15 @@ namespace LOTO.Controllers
         // more details see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public async Task<IActionResult> Create([Bind("ID,TaskName")] Models.Task task)
+        public async Task<IActionResult> Create([Bind("ID,TaskName")] Models.Task Task)
         {
             if (ModelState.IsValid)
             {
-                _context.Add(task);
+                _context.Add(Task);
                 await _context.SaveChangesAsync();
                 return RedirectToAction(nameof(IndexTasks));
             }
-            return View(task);
+            return View(Task);
         }
 
         // GET: Tasks/Edit/5
@@ -73,12 +73,12 @@ namespace LOTO.Controllers
                 return NotFound();
             }
 
-            var task = await _context.Task.FindAsync(id);
-            if (task == null)
+            var Task = await _context.Task.FindAsync(id);
+            if (Task == null)
             {
                 return NotFound();
             }
-            return View(task);
+            return View(Task);
         }
 
         // POST: Tasks/Edit/5
@@ -86,9 +86,9 @@ namespace LOTO.Controllers
         // more details see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public async Task<IActionResult> Edit(int id, [Bind("ID,TaskName")] Models.Task task)
+        public async Task<IActionResult> Edit(int id, [Bind("ID,TaskName")] Models.Task Task)
         {
-            if (id != task.TID)
+            if (id != Task.TID)
             {
                 return NotFound();
             }
@@ -97,12 +97,12 @@ namespace LOTO.Controllers
             {
                 try
                 {
-                    _context.Update(task);
+                    _context.Update(Task);
                     await _context.SaveChangesAsync();
                 }
                 catch (DbUpdateConcurrencyException)
                 {
-                    if (!TaskExists(task.TID))
+                    if (!TaskExists(Task.TID))
                     {
                         return NotFound();
                     }
@@ -113,7 +113,7 @@ namespace LOTO.Controllers
                 }
                 return RedirectToAction(nameof(IndexTasks));
             }
-            return View(task);
+            return View(Task);
         }
 
         // GET: Tasks/Delete/5
@@ -124,14 +124,14 @@ namespace LOTO.Controllers
                 return NotFound();
             }
 
-            var task = await _context.Task
+            var Task = await _context.Task
                 .FirstOrDefaultAsync(m => m.TID == id);
-            if (task == null)
+            if (Task == null)
             {
                 return NotFound();
             }
 
-            return View(task);
+            return View(Task);
         }
 
         // POST: Tasks/Delete/5
@@ -139,8 +139,8 @@ namespace LOTO.Controllers
         [ValidateAntiForgeryToken]
         public async Task<IActionResult> DeleteConfirmed(int id)
         {
-            var task = await _context.Task.FindAsync(id);
-            _context.Task.Remove(task);
+            var Task = await _context.Task.FindAsync(id);
+            _context.Task.Remove(Task);
             await _context.SaveChangesAsync();
             return RedirectToAction(nameof(IndexTasks));
         }

@@ -38,7 +38,7 @@
                     <thead>
                         <tr>
                             <th>
-                                @Html.DisplayNameFor(model => model.Zone)
+                                @Html.DisplayNameFor(model => model.NameMachineZone)
                             </th>
                             <th>
                                 @Html.DisplayNameFor(model => model.ZoneMapFile)
@@ -51,16 +51,16 @@
                         {
                             <tr>
                                 <td>
-                                    @Html.DisplayFor(modelItem => item.Zone)
+                                    @Html.DisplayFor(modelItem => item.NameMachineZone)
                                 </td>
                                 <td>
                                     @Html.DisplayFor(modelItem => item.ZoneMapFile)
                                 </td>
                                 <td>
                                     <button type="button" class="btn btn-link" onclick="location.href='@Url.Action("IndexTasks", "Tasks")'">Open Tasks</button> |
-                                    <a asp-action="Details" asp-route-id="@item.Id">Details</a> |
-                                    <a asp-action="Edit" asp-route-id="@item.Id">Edit</a> |
-                                    <a asp-action="Delete" asp-route-id="@item.Id">Delete</a>
+                                    <a asp-action="Details" asp-route-id="@item.MZID">Details</a> |
+                                    <a asp-action="Edit" asp-route-id="@item.MZID">Edit</a> |
+                                    <a asp-action="Delete" asp-route-id="@item.MZID">Delete</a>
                                 </td>
                             </tr>
                         }

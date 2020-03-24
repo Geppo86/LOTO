@@ -25,9 +25,9 @@
                 @Html.DisplayFor(modelItem => item.TaskName)
             </td>
             <td>
-                <a asp-action="Edit" asp-route-id="@item.ID">Edit</a> |
-                <a asp-action="Details" asp-route-id="@item.ID">Details</a> |
-                <a asp-action="Delete" asp-route-id="@item.ID">Delete</a> |
+                <a asp-action="Edit" asp-route-id="@item.PID">Edit</a> |
+                <a asp-action="Details" asp-route-id="@item.PID">Details</a> |
+                <a asp-action="Delete" asp-route-id="@item.PID">Delete</a> |
                 <button type="button" class="btn btn-link" onclick="location.href='@Url.Action("IndexProcedures", "Procedures")'">IndexProcedures</button> |
             </td>
         </tr>

@@ -17,12 +17,7 @@
             <th>
                 @Html.DisplayNameFor(model => model.MachineName)
             </th>
-            <th>
-                @Html.DisplayNameFor(model => model.Site)
-            </th>
-            <th>
-                @Html.DisplayNameFor(model => model.Building)
-            </th>
+
             @*<th>
                 @Html.DisplayNameFor(model => model.Notes)
             </th>
@@ -38,12 +33,6 @@
             <td>
                 @Html.DisplayFor(modelItem => item.MachineName)
             </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.Site)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.Building)
-            </td>
             @*<td>
                 @Html.DisplayFor(modelItem => item.Notes)
             </td>
@@ -51,9 +40,9 @@
                 @Html.DisplayFor(modelItem => item.MachineMap)
             </td>*@
             <td>
-                <a asp-action="Details" asp-route-id="@item.ID">Open Machine</a> |
-                <a asp-action="Edit" asp-route-id="@item.ID">Edit</a> |
-                <a asp-action="Delete" asp-route-id="@item.ID">Delete</a> |
+                <a asp-action="Details" asp-route-id="@item.MID">Open Machine</a> |
+                <a asp-action="Edit" asp-route-id="@item.MID">Edit</a> |
+                <a asp-action="Delete" asp-route-id="@item.MID">Delete</a> |
             </td>
         </tr>
 }

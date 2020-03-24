@@ -33,14 +33,14 @@ namespace LOTO.Controllers
                 return NotFound();
             }
 
-            var user = await _context.User
+            var User = await _context.User
                 .FirstOrDefaultAsync(m => m.UID == id);
-            if (user == null)
+            if (User == null)
             {
                 return NotFound();
             }
 
-            return View(user);
+            return View(User);
         }
 
         // GET: User/Create
@@ -54,15 +54,15 @@ namespace LOTO.Controllers
         // more details see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public async Task<IActionResult> Create([Bind("id,Name,Last,Dob")] User user)
+        public async Task<IActionResult> Create([Bind("id,Name,Last,Dob")] User User)
         {
             if (ModelState.IsValid)
             {
-                _context.Add(user);
+                _context.Add(User);
                 await _context.SaveChangesAsync();
                 return RedirectToAction(nameof(Index));
             }
-            return View(user);
+            return View(User);
         }
 
         // GET: User/Edit/5
@@ -73,12 +73,12 @@ namespace LOTO.Controllers
                 return NotFound();
             }
 
-            var user = await _context.User.FindAsync(id);
-            if (user == null)
+            var User = await _context.User.FindAsync(id);
+            if (User == null)
             {
                 return NotFound();
             }
-            return View(user);
+            return View(User);
         }
 
         // POST: User/Edit/5
@@ -86,9 +86,9 @@ namespace LOTO.Controllers
         // more details see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public async Task<IActionResult> Edit(int id, [Bind("id,Name,Last,Dob")] User user)
+        public async Task<IActionResult> Edit(int id, [Bind("id,Name,Last,Dob")] User User)
         {
-            if (id != user.UID)
+            if (id != User.UID)
             {
                 return NotFound();
             }
@@ -97,12 +97,12 @@ namespace LOTO.Controllers
             {
                 try
                 {
-                    _context.Update(user);
+                    _context.Update(User);
                     await _context.SaveChangesAsync();
                 }
                 catch (DbUpdateConcurrencyException)
                 {
-                    if (!UserExists(user.UID))
+                    if (!UserExists(User.UID))
                     {
                         return NotFound();
                     }
@@ -113,7 +113,7 @@ namespace LOTO.Controllers
                 }
                 return RedirectToAction(nameof(Index));
             }
-            return View(user);
+            return View(User);
         }
 
         // GET: User/Delete/5
@@ -124,14 +124,14 @@ namespace LOTO.Controllers
                 return NotFound();
             }
 
-            var user = await _context.User
+            var User = await _context.User
                 .FirstOrDefaultAsync(m => m.UID == id);
-            if (user == null)
+            if (User == null)
             {
                 return NotFound();
             }
 
-            return View(user);
+            return View(User);
         }
 
         // POST: User/Delete/5
@@ -139,8 +139,8 @@ namespace LOTO.Controllers
         [ValidateAntiForgeryToken]
         public async Task<IActionResult> DeleteConfirmed(int id)
         {
-            var user = await _context.User.FindAsync(id);
-            _context.User.Remove(user);
+            var User = await _context.User.FindAsync(id);
+            _context.User.Remove(User);
             await _context.SaveChangesAsync();
             return RedirectToAction(nameof(Index));
         }

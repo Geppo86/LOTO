@@ -33,14 +33,14 @@ namespace LOTO.Controllers
                 return NotFound();
             }
 
-            var procedure = await _context.Procedure
+            var Procedure = await _context.Procedure
                 .FirstOrDefaultAsync(m => m.PID == id);
-            if (procedure == null)
+            if (Procedure == null)
             {
                 return NotFound();
             }
 
-            return View(procedure);
+            return View(Procedure);
         }
 
         // GET: Procedures/Create
@@ -54,15 +54,15 @@ namespace LOTO.Controllers
         // more details see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public async Task<IActionResult> Create([Bind("Id,Name,step")] Procedure procedure)
+        public async Task<IActionResult> Create([Bind("Id,Name,step")] Procedure Procedure)
         {
             if (ModelState.IsValid)
             {
-                _context.Add(procedure);
+                _context.Add(Procedure);
                 await _context.SaveChangesAsync();
                 return RedirectToAction(nameof(IndexProcedures));
             }
-            return View(procedure);
+            return View(Procedure);
         }
 
         // GET: Procedures/Edit/5
@@ -73,12 +73,12 @@ namespace LOTO.Controllers
                 return NotFound();
             }
 
-            var procedure = await _context.Procedure.FindAsync(id);
-            if (procedure == null)
+            var Procedure = await _context.Procedure.FindAsync(id);
+            if (Procedure == null)
             {
                 return NotFound();
             }
-            return View(procedure);
+            return View(Procedure);
         }
 
         // POST: Procedures/Edit/5
@@ -86,9 +86,9 @@ namespace LOTO.Controllers
         // more details see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public async Task<IActionResult> Edit(int id, [Bind("Id,Name,step")] Procedure procedure)
+        public async Task<IActionResult> Edit(int id, [Bind("Id,Name,step")] Procedure Procedure)
         {
-            if (id != procedure.PID)
+            if (id != Procedure.PID)
             {
                 return NotFound();
             }
@@ -97,12 +97,12 @@ namespace LOTO.Controllers
             {
                 try
                 {
-                    _context.Update(procedure);
+                    _context.Update(Procedure);
                     await _context.SaveChangesAsync();
                 }
                 catch (DbUpdateConcurrencyException)
                 {
-                    if (!ProcedureExists(procedure.PID))
+                    if (!ProcedureExists(Procedure.PID))
                     {
                         return NotFound();
                     }
@@ -113,7 +113,7 @@ namespace LOTO.Controllers
                 }
                 return RedirectToAction(nameof(IndexProcedures));
             }
-            return View(procedure);
+            return View(Procedure);
         }
 
         // GET: Procedures/Delete/5
@@ -124,14 +124,14 @@ namespace LOTO.Controllers
                 return NotFound();
             }
 
-            var procedure = await _context.Procedure
+            var Procedure = await _context.Procedure
                 .FirstOrDefaultAsync(m => m.PID == id);
-            if (procedure == null)
+            if (Procedure == null)
             {
                 return NotFound();
             }
 
-            return View(procedure);
+            return View(Procedure);
         }
 
         // POST: Procedures/Delete/5
@@ -139,8 +139,8 @@ namespace LOTO.Controllers
         [ValidateAntiForgeryToken]
         public async Task<IActionResult> DeleteConfirmed(int id)
         {
-            var procedure = await _context.Procedure.FindAsync(id);
-            _context.Procedure.Remove(procedure);
+            var Procedure = await _context.Procedure.FindAsync(id);
+            _context.Procedure.Remove(Procedure);
             await _context.SaveChangesAsync();
             return RedirectToAction(nameof(IndexProcedures));
         }

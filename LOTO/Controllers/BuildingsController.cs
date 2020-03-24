@@ -33,14 +33,14 @@ namespace LOTO.Controllers
                 return NotFound();
             }
 
-            var building = await _context.Building
+            var Building = await _context.Building
                 .FirstOrDefaultAsync(m => m.BID == id);
-            if (building == null)
+            if (Building == null)
             {
                 return NotFound();
             }
 
-            return View(building);
+            return View(Building);
         }
 
         // GET: Buildings/Create
@@ -54,15 +54,15 @@ namespace LOTO.Controllers
         // more details see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public async Task<IActionResult> Create([Bind("ID,NameBuilding,Map,Coordinates")] Building building)
+        public async Task<IActionResult> Create([Bind("ID,NameBuilding,Map,Coordinates")] Building Building)
         {
             if (ModelState.IsValid)
             {
-                _context.Add(building);
+                _context.Add(Building);
                 await _context.SaveChangesAsync();
                 return RedirectToAction(nameof(IndexBuildings));
             }
-            return View(building);
+            return View(Building);
         }
 
         // GET: Buildings/Edit/5
@@ -73,12 +73,12 @@ namespace LOTO.Controllers
                 return NotFound();
             }
 
-            var building = await _context.Building.FindAsync(id);
-            if (building == null)
+            var Building = await _context.Building.FindAsync(id);
+            if (Building == null)
             {
                 return NotFound();
             }
-            return View(building);
+            return View(Building);
         }
 
         // POST: Buildings/Edit/5
@@ -86,9 +86,9 @@ namespace LOTO.Controllers
         // more details see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public async Task<IActionResult> Edit(int id, [Bind("ID,NameBuilding,Map,Coordinates")] Building building)
+        public async Task<IActionResult> Edit(int id, [Bind("ID,NameBuilding,Map,Coordinates")] Building Building)
         {
-            if (id != building.BID)
+            if (id != Building.BID)
             {
                 return NotFound();
             }
@@ -97,12 +97,12 @@ namespace LOTO.Controllers
             {
                 try
                 {
-                    _context.Update(building);
+                    _context.Update(Building);
                     await _context.SaveChangesAsync();
                 }
                 catch (DbUpdateConcurrencyException)
                 {
-                    if (!BuildingExists(building.BID))
+                    if (!BuildingExists(Building.BID))
                     {
                         return NotFound();
                     }
@@ -113,7 +113,7 @@ namespace LOTO.Controllers
                 }
                 return RedirectToAction(nameof(IndexBuildings));
             }
-            return View(building);
+            return View(Building);
         }
 
         // GET: Buildings/Delete/5
@@ -124,14 +124,14 @@ namespace LOTO.Controllers
                 return NotFound();
             }
 
-            var building = await _context.Building
+            var Building = await _context.Building
                 .FirstOrDefaultAsync(m => m.BID == id);
-            if (building == null)
+            if (Building == null)
             {
                 return NotFound();
             }
 
-            return View(building);
+            return View(Building);
         }
 
         // POST: Buildings/Delete/5
@@ -139,8 +139,8 @@ namespace LOTO.Controllers
         [ValidateAntiForgeryToken]
         public async Task<IActionResult> DeleteConfirmed(int id)
         {
-            var building = await _context.Building.FindAsync(id);
-            _context.Building.Remove(building);
+            var Building = await _context.Building.FindAsync(id);
+            _context.Building.Remove(Building);
             await _context.SaveChangesAsync();
             return RedirectToAction(nameof(IndexBuildings));
         }

@@ -827,7 +827,7 @@
         if (_this3._config.pause === 'hover') {
           // If it's a touch-enabled device, mouseenter/leave are fired as
           // part of the mouse compatibility events on first tap - the carousel
-          // would stop cycling until user tapped out of it;
+          // would stop cycling until User tapped out of it;
           // here, we listen for touchend, explicitly pause the carousel
           // (as if it's the second time we tap on it, mouseenter compat event
           // is NOT fired) and after a timeout (to allow for mouse compatibility
@@ -1530,13 +1530,13 @@
   var longerTimeoutBrowsers = ['Edge', 'Trident', 'Firefox'];
   var timeoutDuration = 0;
   for (var i = 0; i < longerTimeoutBrowsers.length; i += 1) {
-    if (isBrowser && navigator.userAgent.indexOf(longerTimeoutBrowsers[i]) >= 0) {
+    if (isBrowser && navigator.UserAgent.indexOf(longerTimeoutBrowsers[i]) >= 0) {
       timeoutDuration = 1;
       break;
     }
   }
 
-  function microtaskDebounce(fn) {
+  function microTaskDebounce(fn) {
     var called = false;
     return function () {
       if (called) {
@@ -1550,7 +1550,7 @@
     };
   }
 
-  function taskDebounce(fn) {
+  function TaskDebounce(fn) {
     var scheduled = false;
     return function () {
       if (!scheduled) {
@@ -1574,7 +1574,7 @@
   * @argument {Function} fn
   * @returns {Function}
   */
-  var debounce = supportsMicroTasks ? microtaskDebounce : taskDebounce;
+  var debounce = supportsMicroTasks ? microTaskDebounce : TaskDebounce;
 
   /**
    * Check if the given variable is a function
@@ -1655,7 +1655,7 @@
   }
 
   var isIE11 = isBrowser && !!(window.MSInputMethodContext && document.documentMode);
-  var isIE10 = isBrowser && /MSIE 10/.test(navigator.userAgent);
+  var isIE10 = isBrowser && /MSIE 10/.test(navigator.UserAgent);
 
   /**
    * Determines if the browser is Internet Explorer
@@ -2505,7 +2505,7 @@
 
     this.disableEventListeners();
 
-    // remove the popper if user explicity asked for the deletion on destroy
+    // remove the popper if User explicity asked for the deletion on destroy
     // do not use `remove` because IE11 doesn't support it
     if (this.options.removeOnDestroy) {
       this.popper.parentNode.removeChild(this.popper);
@@ -2757,7 +2757,7 @@
     };
   }
 
-  var isFirefox = isBrowser && /Firefox/i.test(navigator.userAgent);
+  var isFirefox = isBrowser && /Firefox/i.test(navigator.UserAgent);
 
   /**
    * @function

@@ -14,7 +14,7 @@ namespace LOTO.Models
 
         public int StepNumber { get; set; } /*Step number is the order in which 
                                               points are assigned to, 
-                                              or locked out in a procedure. 
+                                              or locked out in a Procedure. 
                                               We added visual because the 
                                               difficulty in understanding 
                                               was that the step is displayed 

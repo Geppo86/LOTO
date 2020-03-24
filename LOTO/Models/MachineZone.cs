@@ -8,6 +8,7 @@ namespace LOTO.Models
 {
     public class MachineZone
     {
+        [Key]
         public int MZID { get; set; }
 
         public Machine MID { get; set; } //Foreign Key

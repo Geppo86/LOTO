@@ -8,6 +8,7 @@ namespace LOTO.Models
 {
     public class ProcedureLockoutPointXRef
     {
+        [Key]
         public Procedure PID { get; set; } // Foreign Key
 
         public LockoutPoint LPID { get; set; } //Foreign Key

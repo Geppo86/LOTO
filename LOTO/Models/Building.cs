@@ -1,4 +1,5 @@
-﻿using System;
+﻿using Microsoft.EntityFrameworkCore.Metadata.Internal;
+using System;
 using System.Collections.Generic;
 using System.ComponentModel.DataAnnotations;
 using System.Linq;
@@ -8,6 +9,7 @@ namespace LOTO.Models
 {
     public class Building
     {
+        [Key]
         public int BID { get; set; }
 
         [Display(Name = "Building Name/Number")]

@@ -8,6 +8,7 @@ namespace LOTO.Models
 {
     public class Procedure
     {
+        [Key]
         public int PID { get; set; }
         public string LotoOrApm { get; set; }
 

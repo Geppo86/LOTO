@@ -8,6 +8,7 @@ namespace LOTO.Models
 {
     public class Task
     {
+        [Key]
         public int TID { get; set; }
 
         [Display(Name = "Task Name")]

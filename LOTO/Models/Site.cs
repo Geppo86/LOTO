@@ -8,6 +8,7 @@ namespace LOTO.Models
 {
     public class Site
     {
+        [Key]
         public int SID { get; set; }
 
         [Display(Name = "Site Name")]

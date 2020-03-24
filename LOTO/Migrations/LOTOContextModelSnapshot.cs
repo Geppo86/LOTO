@@ -21,13 +21,10 @@ namespace LOTO.Migrations
 
             modelBuilder.Entity("LOTO.Models.Building", b =>
                 {
-                    b.Property<int>("ID")
+                    b.Property<int>("BID")
                         .ValueGeneratedOnAdd()
                         .HasColumnType("int")
                         .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
-
-                    b.Property<string>("Coordinates")
-                        .HasColumnType("nvarchar(max)");
 
                     b.Property<string>("Map")
                         .HasColumnType("nvarchar(max)");
@@ -35,47 +32,92 @@ namespace LOTO.Migrations
                     b.Property<string>("NameBuilding")
                         .HasColumnType("nvarchar(max)");
 
-                    b.HasKey("ID");
+                    b.HasKey("BID");
 
                     b.ToTable("Building");
                 });
 
-            modelBuilder.Entity("LOTO.Models.Facility", b =>
+            modelBuilder.Entity("LOTO.Models.ConfirmationPoint", b =>
                 {
-                    b.Property<int>("ID")
+                    b.Property<int>("CPID")
                         .ValueGeneratedOnAdd()
                         .HasColumnType("int")
                         .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
 
-                    b.Property<string>("FacilityLocation")
+                    b.Property<string>("ConfirmationDeviceName")
                         .HasColumnType("nvarchar(max)");
+
+                    b.Property<string>("ConfirmationDevicePicture")
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<string>("ConfirmationDeviceSafeStatus")
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<string>("ConfirmationDeviceType")
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<string>("ConfirmationTagNumber")
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<string>("LocationDescription")
+                        .HasColumnType("nvarchar(max)");
+
+                    b.HasKey("CPID");
+
+                    b.ToTable("ConfirmationPoint");
+                });
+
+            modelBuilder.Entity("LOTO.Models.EnergyType", b =>
+                {
+                    b.Property<int>("ETID")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("int")
+                        .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
+
+                    b.Property<string>("BackgroundColor")
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<string>("EnergyTypeName")
+                        .HasColumnType("nvarchar(max)");
+
+                    b.HasKey("ETID");
+
+                    b.ToTable("EnergyType");
+                });
+
+            modelBuilder.Entity("LOTO.Models.Facility", b =>
+                {
+                    b.Property<int>("FID")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("int")
+                        .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
 
                     b.Property<string>("FacilityName")
                         .HasColumnType("nvarchar(max)");
 
-                    b.HasKey("ID");
+                    b.HasKey("FID");
 
                     b.ToTable("Facility");
                 });
 
             modelBuilder.Entity("LOTO.Models.LockoutPoint", b =>
                 {
-                    b.Property<int>("ID")
+                    b.Property<int>("LPID")
                         .ValueGeneratedOnAdd()
                         .HasColumnType("int")
                         .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
 
-                    b.Property<int>("ConfirmationDeviceID")
+                    b.Property<int?>("CPID1")
                         .HasColumnType("int");
 
                     b.Property<string>("Device")
                         .HasColumnType("nvarchar(max)");
 
+                    b.Property<int?>("ETID1")
+                        .HasColumnType("int");
+
                     b.Property<string>("EnergyMagnitude")
                         .HasColumnType("nvarchar(max)");
-
-                    b.Property<int>("EnergyTypeID")
-                        .HasColumnType("int");
 
                     b.Property<string>("LocationDescription")
                         .HasColumnType("nvarchar(max)");
@@ -92,20 +134,24 @@ namespace LOTO.Migrations
                     b.Property<string>("MethodToVerify")
                         .HasColumnType("nvarchar(max)");
 
-                    b.HasKey("ID");
+                    b.HasKey("LPID");
+
+                    b.HasIndex("CPID1");
+
+                    b.HasIndex("ETID1");
 
                     b.ToTable("LockoutPoint");
                 });
 
             modelBuilder.Entity("LOTO.Models.Machine", b =>
                 {
-                    b.Property<int>("ID")
+                    b.Property<int>("MID")
                         .ValueGeneratedOnAdd()
                         .HasColumnType("int")
                         .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
 
-                    b.Property<string>("Building")
-                        .HasColumnType("nvarchar(max)");
+                    b.Property<int?>("BID1")
+                        .HasColumnType("int");
 
                     b.Property<string>("CustomerDefinedArea")
                         .HasColumnType("nvarchar(max)");
@@ -125,38 +171,42 @@ namespace LOTO.Migrations
                     b.Property<string>("MachineSerialName")
                         .HasColumnType("nvarchar(max)");
 
-                    b.Property<string>("Site")
-                        .HasColumnType("nvarchar(max)");
+                    b.HasKey("MID");
 
-                    b.HasKey("ID");
+                    b.HasIndex("BID1");
 
                     b.ToTable("Machine");
                 });
 
             modelBuilder.Entity("LOTO.Models.MachineZone", b =>
                 {
-                    b.Property<int>("Id")
+                    b.Property<int>("MZID")
                         .ValueGeneratedOnAdd()
                         .HasColumnType("int")
                         .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
 
+                    b.Property<int?>("MID1")
+                        .HasColumnType("int");
+
                     b.Property<string>("MachineZoneDescription")
                         .HasColumnType("nvarchar(max)");
 
-                    b.Property<string>("Zone")
+                    b.Property<string>("NameMachineZone")
                         .HasColumnType("nvarchar(max)");
 
                     b.Property<string>("ZoneMapFile")
                         .HasColumnType("nvarchar(max)");
 
-                    b.HasKey("Id");
+                    b.HasKey("MZID");
+
+                    b.HasIndex("MID1");
 
                     b.ToTable("MachineZone");
                 });
 
             modelBuilder.Entity("LOTO.Models.Procedure", b =>
                 {
-                    b.Property<int>("Id")
+                    b.Property<int>("PID")
                         .ValueGeneratedOnAdd()
                         .HasColumnType("int")
                         .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
@@ -164,55 +214,56 @@ namespace LOTO.Migrations
                     b.Property<string>("DateLastAudit")
                         .HasColumnType("nvarchar(max)");
 
-                    b.Property<string>("LOTOorAPM")
-                        .HasColumnType("nvarchar(max)");
-
-                    b.Property<string>("NameLastAudit")
+                    b.Property<string>("LotoOrApm")
                         .HasColumnType("nvarchar(max)");
 
                     b.Property<string>("Note")
                         .HasColumnType("nvarchar(max)");
 
-                    b.Property<string>("ProcedureID")
-                        .HasColumnType("nvarchar(max)");
-
                     b.Property<string>("ProcedureName")
                         .HasColumnType("nvarchar(max)");
 
-                    b.HasKey("Id");
+                    b.Property<int?>("UID1")
+                        .HasColumnType("int");
+
+                    b.HasKey("PID");
+
+                    b.HasIndex("UID1");
 
                     b.ToTable("Procedure");
                 });
 
             modelBuilder.Entity("LOTO.Models.Task", b =>
                 {
-                    b.Property<int>("ID")
+                    b.Property<int>("TID")
                         .ValueGeneratedOnAdd()
                         .HasColumnType("int")
                         .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
 
+                    b.Property<int?>("MZID1")
+                        .HasColumnType("int");
+
+                    b.Property<int?>("PID1")
+                        .HasColumnType("int");
+
                     b.Property<string>("TaskName")
                         .HasColumnType("nvarchar(max)");
 
-                    b.Property<int?>("ZoneId")
-                        .HasColumnType("int");
+                    b.HasKey("TID");
 
-                    b.HasKey("ID");
+                    b.HasIndex("MZID1");
 
-                    b.HasIndex("ZoneId");
+                    b.HasIndex("PID1");
 
                     b.ToTable("Task");
                 });
 
             modelBuilder.Entity("LOTO.Models.User", b =>
                 {
-                    b.Property<int>("ID")
+                    b.Property<int>("UID")
                         .ValueGeneratedOnAdd()
                         .HasColumnType("int")
                         .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
-
-                    b.Property<string>("AuthorizationLevel")
-                        .HasColumnType("nvarchar(max)");
 
                     b.Property<DateTime>("DOB")
                         .HasColumnType("datetime2");
@@ -226,16 +277,55 @@ namespace LOTO.Migrations
                     b.Property<string>("LastName")
                         .HasColumnType("nvarchar(max)");
 
-                    b.HasKey("ID");
+                    b.Property<string>("Role")
+                        .HasColumnType("nvarchar(max)");
+
+                    b.HasKey("UID");
 
                     b.ToTable("User");
                 });
 
+            modelBuilder.Entity("LOTO.Models.LockoutPoint", b =>
+                {
+                    b.HasOne("LOTO.Models.ConfirmationPoint", "CPID")
+                        .WithMany()
+                        .HasForeignKey("CPID1");
+
+                    b.HasOne("LOTO.Models.EnergyType", "ETID")
+                        .WithMany()
+                        .HasForeignKey("ETID1");
+                });
+
+            modelBuilder.Entity("LOTO.Models.Machine", b =>
+                {
+                    b.HasOne("LOTO.Models.Building", "BID")
+                        .WithMany()
+                        .HasForeignKey("BID1");
+                });
+
+            modelBuilder.Entity("LOTO.Models.MachineZone", b =>
+                {
+                    b.HasOne("LOTO.Models.Machine", "MID")
+                        .WithMany()
+                        .HasForeignKey("MID1");
+                });
+
+            modelBuilder.Entity("LOTO.Models.Procedure", b =>
+                {
+                    b.HasOne("LOTO.Models.User", "UID")
+                        .WithMany()
+                        .HasForeignKey("UID1");
+                });
+
             modelBuilder.Entity("LOTO.Models.Task", b =>
                 {
-                    b.HasOne("LOTO.Models.MachineZone", "Zone")
+                    b.HasOne("LOTO.Models.MachineZone", "MZID")
                         .WithMany()
-                        .HasForeignKey("ZoneId");
+                        .HasForeignKey("MZID1");
+
+                    b.HasOne("LOTO.Models.Procedure", "PID")
+                        .WithMany()
+                        .HasForeignKey("PID1");
                 });
 #pragma warning restore 612, 618
         }

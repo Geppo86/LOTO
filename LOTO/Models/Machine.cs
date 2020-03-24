@@ -8,6 +8,7 @@ namespace LOTO.Models
 {
     public class Machine
     {
+        [Key]
         public int MID { get; set; }
 
         [Display(Name = "Machine Serial Number")]

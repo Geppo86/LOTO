@@ -8,6 +8,7 @@ namespace LOTO.Models
 {
     public class Facility
     {
+        [Key]
         public int FID { get; set; }
 
         [Display(Name = "Facility Name")]

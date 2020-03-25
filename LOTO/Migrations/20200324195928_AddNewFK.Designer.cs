@@ -4,14 +4,16 @@ using LOTO.Data;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
 using Microsoft.EntityFrameworkCore.Metadata;
+using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 
 namespace LOTO.Migrations
 {
     [DbContext(typeof(LOTOContext))]
-    partial class LOTOContextModelSnapshot : ModelSnapshot
+    [Migration("20200324195928_AddNewFK")]
+    partial class AddNewFK
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder
@@ -100,12 +102,7 @@ namespace LOTO.Migrations
                     b.Property<string>("FacilityName")
                         .HasColumnType("nvarchar(max)");
 
-                    b.Property<int?>("SID1")
-                        .HasColumnType("int");
-
                     b.HasKey("FID");
-
-                    b.HasIndex("SID1");
 
                     b.ToTable("Facility");
                 });
@@ -243,24 +240,6 @@ namespace LOTO.Migrations
                     b.ToTable("Procedure");
                 });
 
-            modelBuilder.Entity("LOTO.Models.Site", b =>
-                {
-                    b.Property<int>("SID")
-                        .ValueGeneratedOnAdd()
-                        .HasColumnType("int")
-                        .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
-
-                    b.Property<string>("SiteAddress")
-                        .HasColumnType("nvarchar(max)");
-
-                    b.Property<string>("SiteName")
-                        .HasColumnType("nvarchar(max)");
-
-                    b.HasKey("SID");
-
-                    b.ToTable("Site");
-                });
-
             modelBuilder.Entity("LOTO.Models.Task", b =>
                 {
                     b.Property<int>("TID")
@@ -296,9 +275,6 @@ namespace LOTO.Migrations
                     b.Property<DateTime>("DOB")
                         .HasColumnType("datetime2");
 
-                    b.Property<string>("Email")
-                        .HasColumnType("nvarchar(max)");
-
                     b.Property<string>("EmployeeID")
                         .HasColumnType("nvarchar(max)");
 
@@ -306,9 +282,6 @@ namespace LOTO.Migrations
                         .HasColumnType("nvarchar(max)");
 
                     b.Property<string>("LastName")
-                        .HasColumnType("nvarchar(max)");
-
-                    b.Property<string>("PhoneNumber")
                         .HasColumnType("nvarchar(max)");
 
                     b.Property<string>("Role")
@@ -324,13 +297,6 @@ namespace LOTO.Migrations
                     b.HasOne("LOTO.Models.Facility", "FID")
                         .WithMany()
                         .HasForeignKey("FID1");
-                });
-
-            modelBuilder.Entity("LOTO.Models.Facility", b =>
-                {
-                    b.HasOne("LOTO.Models.Site", "SID")
-                        .WithMany()
-                        .HasForeignKey("SID1");
                 });
 
             modelBuilder.Entity("LOTO.Models.LockoutPoint", b =>

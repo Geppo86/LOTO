@@ -11,6 +11,8 @@ namespace LOTO.Models
         [Key]
         public int FID { get; set; }
 
+        public Site SID { get; set; }
+
         [Display(Name = "Facility Name")]
         public string FacilityName { get; set; }
 

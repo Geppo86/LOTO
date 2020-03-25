@@ -11,6 +11,8 @@ namespace LOTO.Models
     {
         [Key]
         public int BID { get; set; }
+        
+        public Facility FID { get; set;}
 
         [Display(Name = "Building Name/Number")]
         public string NameBuilding { get; set; }

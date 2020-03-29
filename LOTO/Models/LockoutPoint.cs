@@ -7,7 +7,7 @@ using System.Threading.Tasks;
 namespace LOTO.Models
 {
     public class LockoutPoint
-    {
+    {     
         [Key]
         public int LPID { get; set; }
         public string LockoutTagNumber { get; set; }

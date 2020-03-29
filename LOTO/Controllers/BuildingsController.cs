@@ -10,7 +10,7 @@ using LOTO.Models;
 
 namespace LOTO.Controllers
 {
-    public class BuildingsController : Controller
+    public class BuildingsController : Controller   
     {
         private readonly LOTOContext _context;
 

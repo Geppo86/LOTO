@@ -22,5 +22,6 @@ namespace LOTO.Data
         public DbSet<LOTO.Models.Procedure> Procedure { get; set; }
         public DbSet<LOTO.Models.Facility> Facility { get; set; }
         public DbSet<LOTO.Models.Building> Building { get; set; }
+        public DbSet<LOTO.Models.Site> Site { get; set; }
     }
 }

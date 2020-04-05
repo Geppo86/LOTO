@@ -54,7 +54,7 @@ namespace LOTO.Controllers
         // more details see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public async Task<IActionResult> Create([Bind("Id,Zone,ZoneMapFile,HatchingFile")] MachineZone MachineZone)
+        public async Task<IActionResult> Create([Bind("MZID,Zone,ZoneMapFile,HatchingFile")] MachineZone MachineZone)
         {
             if (ModelState.IsValid)
             {
@@ -86,7 +86,7 @@ namespace LOTO.Controllers
         // more details see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public async Task<IActionResult> Edit(int id, [Bind("Id,Zone,ZoneMapFile,HatchingFile")] MachineZone MachineZone)
+        public async Task<IActionResult> Edit(int id, [Bind("MZID,Zone,ZoneMapFile,HatchingFile")] MachineZone MachineZone)
         {
             if (id != MachineZone.MZID)
             {

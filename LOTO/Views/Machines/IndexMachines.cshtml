@@ -15,15 +15,22 @@
     <thead>
         <tr>
             <th>
-                @Html.DisplayNameFor(model => model.MachineName)
-            </th>
-
-            @*<th>
-                @Html.DisplayNameFor(model => model.Notes)
+                @Html.DisplayNameFor(model => model.MachineSerialName)
             </th>
             <th>
-                @Html.DisplayNameFor(model => model.MachineMap)
-            </th>*@
+                @Html.DisplayNameFor(model => model.MachineName)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.MachineOemName)
+            </th>
+
+
+            @*<th>
+            @Html.DisplayNameFor(model => model.Notes)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.MachineMap)
+        </th>*@
             <th></th>
         </tr>
     </thead>
@@ -31,14 +38,14 @@
 @foreach (var item in Model) {
         <tr>
             <td>
-                @Html.DisplayFor(modelItem => item.MachineName)
-            </td>
-            @*<td>
-                @Html.DisplayFor(modelItem => item.Notes)
+                @Html.DisplayFor(modelItem => item.MachineSerialName)
             </td>
             <td>
-                @Html.DisplayFor(modelItem => item.MachineMap)
-            </td>*@
+                @Html.DisplayFor(modelItem => item.MachineName)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem=> item.MachineOemName)
+            </td>
             <td>
                 <a asp-action="Details" asp-route-id="@item.MID">Open Machine</a> |
                 <a asp-action="Edit" asp-route-id="@item.MID">Edit</a> |

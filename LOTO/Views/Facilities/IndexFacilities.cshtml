@@ -29,13 +29,12 @@
 @foreach (var item in Model) {
         <tr>
             <td>
-                @Html.DisplayFor(modelItem => item.FacilityName)
+                @Html.ActionLink(item.FacilityName, "IndexBuildings", "Buildings")
             </td>
             <td>
                 <a asp-action="Edit" asp-route-id="@item.FID">Edit</a> |
                 <a asp-action="Details" asp-route-id="@item.FID">Details</a> |
-                <a asp-action="Delete" asp-route-id="@item.FID">Delete</a> |
-                <button type="button" class="btn btn-link" onclick="location.href='@Url.Action("IndexBuildings", "Buildings")'">Buildings</button>
+                <a asp-action="Delete" asp-route-id="@item.FID">Delete</a> 
             </td>
         </tr>
 }

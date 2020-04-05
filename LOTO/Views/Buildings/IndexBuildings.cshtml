@@ -29,7 +29,7 @@
 @foreach (var item in Model) {
         <tr>
             <td>
-                @Html.DisplayFor(modelItem => item.NameBuilding)
+                @Html.ActionLink(item.NameBuilding, "IndexMachines", "Machines")
             </td>
             <td>
                 @Html.DisplayFor(modelItem => item.Map)
@@ -41,8 +41,6 @@
                 <a asp-action="Edit" asp-route-id="@item.BID">Edit</a> |
                 <a asp-action="Details" asp-route-id="@item.BID">Details</a> |
                 <a asp-action="Delete" asp-route-id="@item.BID">Delete</a> |
-                <button type="button" class="btn btn-link" onclick="location.href='@Url.Action("IndexMachines", "Machines")'">Machines</button>
-            </td>
         </tr>
 }
     </tbody>

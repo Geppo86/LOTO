@@ -12,7 +12,7 @@ namespace LOTO.Models
         public int MID { get; set; }
 
         [Display(Name = "Machine Serial Number")]
-        public string MachineSerialName { get; set; }
+        public string MachineSerialNumber { get; set; }
 
         [Display(Name = "Machine OEM Name")]
         public string MachineOemName { get; set; }

@@ -55,7 +55,7 @@ namespace LOTO.Controllers
         // more details see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public async Task<IActionResult> Create([Bind("MID,MachineName,Site,Building,Notes,MachineMap")] Machine machine)
+        public async Task<IActionResult> Create([Bind("MID,MachineSerialNumber,MachineOemName,MachineName,Site,Building,Notes,MachineMap")] Machine machine)
         {
             if (ModelState.IsValid)
             {
@@ -87,7 +87,7 @@ namespace LOTO.Controllers
         // more details see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public async Task<IActionResult> Edit(int id, [Bind("MID,MachineName,Site,Building,Notes,MachineMap")] Machine machine)
+        public async Task<IActionResult> Edit(int id, [Bind("MID,MachineSerialNumber,MachineOemName,MachineName,Site,Building,Notes,MachineMap")] Machine machine)
         {
             if (id != machine.MID)
             {

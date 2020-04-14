@@ -14,9 +14,9 @@
         <form asp-action="Create">
             <div asp-validation-summary="ModelOnly" class="text-danger"></div>
             <div class="form-group">
-                <label asp-for="MachineSerialName" class="control-label"></label>
-                <input asp-for="MachineSerialName" class="form-control" />
-                <span asp-validation-for="MachineSerialName" class="text-danger"></span>
+                <label asp-for="MachineSerialNumber" class="control-label"></label>
+                <input asp-for="MachineSerialNumber" class="form-control" />
+                <span asp-validation-for="MachineSerialNumber" class="text-danger"></span>
             </div>
             <div class="form-group">
                 <label asp-for="MachineName" class="control-label"></label>
@@ -30,7 +30,8 @@
             </div>
             <div class="form-group">
                 <label asp-for="MachinePictureFile" class="control-label"></label>
-                <input asp-for="MachinePictureFile" class="form-control" />
+                @*<input type="file" class="custom-file-input" id="customFile">*@
+                <input type="file" class="custom-file-input" asp-for="MachinePictureFile" />
                 <span asp-validation-for="MachinePictureFile" class="text-danger"></span>
             </div>
             <div class="form-group">
